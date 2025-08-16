@@ -1,24 +1,29 @@
-name: "Chromatic Deployment"
+name: Chromatic Deployment
 
 on:
   push:
-    branches: [ "main" ]   # runs when you push to main
-  pull_request:
-    branches: [ "main" ]   # also runs on PRs to main
+    branches:
+      - main  # runs when you push to main branch
 
 jobs:
-  chromatic-deploy:
+  chromatic-deployment:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # or 20 if your project uses Node 20
+
       - name: Install dependencies
         run: npm install
+
+      - name: Build Storybook
+        run: npm run build-storybook
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: build-storybook
