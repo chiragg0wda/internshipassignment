@@ -89,3 +89,56 @@ export const Variants: Story = {
     </div>
   ),
 };
+
+// ✅ New stories to cover all assignment requirements
+
+export const Disabled: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    label: "Disabled Input",
+    placeholder: "Can't type here",
+    disabled: true,
+    value: "Disabled text",
+  },
+};
+
+export const Clearable: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    label: "Search",
+    placeholder: "Type and clear",
+    clearable: true,
+    variant: "outlined",
+  },
+};
+
+export const HelperText: Story = {
+  render: (args) => <Controlled {...args} />,
+  args: {
+    label: "Username",
+    placeholder: "Enter username",
+    helperText: "Use lowercase letters only",
+  },
+};
+
+export const DarkMode: Story = {
+  render: (args) => (
+    <div className="w-80 bg-gray-900 p-4 rounded-md">
+      <Controlled {...args} />
+    </div>
+  ),
+  args: {
+    label: "Dark Mode",
+    placeholder: "Type here",
+    helperText: "This is in dark theme",
+    variant: "filled",
+  },
+  parameters: {
+    backgrounds: { default: "dark" },
+    docs: {
+      description: {
+        story: "Demonstrates InputField in dark theme mode.",
+      },
+    },
+  },
+};

@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { Loader2 } from "lucide-react";
 
 export interface Column<T> {
   header: React.ReactNode;
@@ -14,29 +15,30 @@ export interface DataTableProps<T> {
   selectable?: boolean;
   selectionMode?: "single" | "multiple";
   onRowSelect?: (selectedRows: T[]) => void;
+  rowKey?: keyof T; // new: allow custom row key (default "id")
 }
 
-function DataTable<T extends { id: number | string }>({
+function DataTable<T extends { id?: number | string }>({
   data,
   columns,
   loading = false,
   selectable = false,
   selectionMode = "single",
   onRowSelect,
+  rowKey = "id",
 }: DataTableProps<T>) {
   const [sortConfig, setSortConfig] = useState<{ key: keyof T; direction: "asc" | "desc" } | null>(null);
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
 
-  // Sort data if sorting is applied
+  // Sort data
   const sortedData = useMemo(() => {
     if (!sortConfig) return data;
 
-    const sorted = [...data].sort((a, b) => {
+    return [...data].sort((a, b) => {
       const aValue = a[sortConfig.key];
       const bValue = b[sortConfig.key];
 
       if (aValue === bValue) return 0;
-
       if (aValue == null) return 1;
       if (bValue == null) return -1;
 
@@ -48,11 +50,9 @@ function DataTable<T extends { id: number | string }>({
         ? String(aValue).localeCompare(String(bValue))
         : String(bValue).localeCompare(String(aValue));
     });
-
-    return sorted;
   }, [data, sortConfig]);
 
-  // Toggle sorting on column header click
+  // Sorting handler
   const handleSort = (col: Column<T>) => {
     if (!col.sortable) return;
 
@@ -66,29 +66,29 @@ function DataTable<T extends { id: number | string }>({
     }
   };
 
-  // Handle row selection
+  // Row selection
   const handleRowSelect = (row: T) => {
     if (!selectable) return;
 
-    let newSelected: T[] = [];
+    const key = row[rowKey];
+    if (!key) return;
 
-    const alreadySelected = selectedRows.some((r) => r.id === row.id);
+    let newSelected: T[] = [];
+    const alreadySelected = selectedRows.some((r) => r[rowKey] === key);
 
     if (selectionMode === "single") {
       newSelected = alreadySelected ? [] : [row];
     } else {
-      if (alreadySelected) {
-        newSelected = selectedRows.filter((r) => r.id !== row.id);
-      } else {
-        newSelected = [...selectedRows, row];
-      }
+      newSelected = alreadySelected
+        ? selectedRows.filter((r) => r[rowKey] !== key)
+        : [...selectedRows, row];
     }
 
     setSelectedRows(newSelected);
     onRowSelect?.(newSelected);
   };
 
-  // Handle "select all" for multiple selection mode
+  // Select all (multiple mode)
   const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setSelectedRows(sortedData);
@@ -99,20 +99,28 @@ function DataTable<T extends { id: number | string }>({
     }
   };
 
-  const isRowSelected = (row: T) => selectedRows.some((r) => r.id === row.id);
+  const isRowSelected = (row: T) => {
+    const key = row[rowKey];
+    return selectedRows.some((r) => r[rowKey] === key);
+  };
 
   return (
     <div className="overflow-x-auto">
       {loading ? (
-        <div className="p-4 text-center">Loading...</div>
+        <div className="p-4 text-center flex items-center justify-center gap-2 text-gray-500">
+          <Loader2 className="animate-spin" size={18} /> Loading...
+        </div>
       ) : sortedData.length === 0 ? (
-        <div className="p-4 text-center">No data available</div>
+        <div className="p-4 text-center text-gray-500">No data available</div>
       ) : (
-        <table className="min-w-full border-collapse border border-gray-300">
+        <table
+          role="table"
+          className="min-w-full border-collapse border border-gray-300"
+        >
           <thead>
-            <tr className="bg-gray-100">
+            <tr role="row" className="bg-gray-100">
               {selectable && (
-                <th className="p-2 border border-gray-300">
+                <th role="columnheader" className="p-2 border border-gray-300">
                   {selectionMode === "multiple" && (
                     <input
                       type="checkbox"
@@ -126,6 +134,7 @@ function DataTable<T extends { id: number | string }>({
               {columns.map((col, index) => (
                 <th
                   key={index}
+                  role="columnheader"
                   scope="col"
                   className={`p-2 text-left border border-gray-300 cursor-pointer select-none ${
                     col.widthClassName || ""
@@ -149,15 +158,11 @@ function DataTable<T extends { id: number | string }>({
                     {col.header}
                     {col.sortable && (
                       <span aria-hidden="true">
-                        {sortConfig?.key === col.accessor ? (
-                          sortConfig.direction === "asc" ? (
-                            " ▲"
-                          ) : (
-                            " ▼"
-                          )
-                        ) : (
-                          " ⇵"
-                        )}
+                        {sortConfig?.key === col.accessor
+                          ? sortConfig.direction === "asc"
+                            ? " ▲"
+                            : " ▼"
+                          : " ⇵"}
                       </span>
                     )}
                   </div>
@@ -166,10 +171,11 @@ function DataTable<T extends { id: number | string }>({
             </tr>
           </thead>
           <tbody>
-            {sortedData.map((row) => (
+            {sortedData.map((row, idx) => (
               <tr
-                key={row.id}
-                className={`border border-gray-300 ${
+                key={String(row[rowKey] ?? idx)}
+                role="row"
+                className={`border border-gray-300 hover:bg-gray-50 ${
                   isRowSelected(row) ? "bg-blue-100" : ""
                 } cursor-pointer`}
                 onClick={() => handleRowSelect(row)}
@@ -183,18 +189,22 @@ function DataTable<T extends { id: number | string }>({
                 aria-selected={isRowSelected(row)}
               >
                 {selectable && (
-                  <td className="p-2 border border-gray-300">
+                  <td role="cell" className="p-2 border border-gray-300">
                     <input
                       type="checkbox"
                       checked={isRowSelected(row)}
                       onChange={() => handleRowSelect(row)}
                       onClick={(e) => e.stopPropagation()}
-                      aria-label={`Select row with id ${row.id}`}
+                      aria-label={`Select row with key ${row[rowKey]}`}
                     />
                   </td>
                 )}
                 {columns.map((col, i) => (
-                  <td key={i} className={`p-2 border border-gray-300 ${col.widthClassName || ""}`}>
+                  <td
+                    key={i}
+                    role="cell"
+                    className={`p-2 border border-gray-300 ${col.widthClassName || ""}`}
+                  >
                     {typeof col.accessor === "function"
                       ? col.accessor(row)
                       : (row as any)[col.accessor]}
