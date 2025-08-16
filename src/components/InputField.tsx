@@ -84,8 +84,8 @@ const InputField: React.FC<InputFieldProps> = ({
           aria-disabled={disabled}
         />
 
-        {/* Password toggle */}
-        {type === 'password' && !disabled && !loading && (
+        {/* Password toggle (only if not loading and no clear button) */}
+        {type === 'password' && !disabled && !loading && !showClearBtn && (
           <button
             type="button"
             onClick={togglePassword}
@@ -96,8 +96,8 @@ const InputField: React.FC<InputFieldProps> = ({
           </button>
         )}
 
-        {/* Clear button */}
-        {showClearBtn && (
+        {/* Clear button (only if not loading) */}
+        {showClearBtn && !loading && (
           <button
             type="button"
             onClick={handleClear}
@@ -110,7 +110,11 @@ const InputField: React.FC<InputFieldProps> = ({
 
         {/* Loading spinner */}
         {loading && (
-          <Loader2 className="absolute right-2 animate-spin text-gray-400" size={18} aria-label="Loading" />
+          <Loader2
+            className="absolute right-2 text-gray-400 animate-spin"
+            size={18}
+            aria-label="Loading"
+          />
         )}
       </div>
 
