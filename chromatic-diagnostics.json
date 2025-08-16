@@ -1,0 +1,639 @@
+{
+  "activity": {},
+  "announcedBuild": {
+    "id": "68a051ff39e75d3914ed87c8",
+    "number": 5,
+    "status": "ANNOUNCED",
+    "autoAcceptChanges": false,
+    "app": {
+      "id": "68a04030785654d90b2ab00e",
+      "turboSnapAvailability": "UNAVAILABLE"
+    }
+  },
+  "buildCommand": "npm run build-storybook -- --output-dir=C:\\Users\\agchi\\AppData\\Local\\Temp\\chromatic--19908-KXjLJ8vn2dwZ",
+  "buildLogFile": "D:\\Projects\\internshipassignment\\build-storybook.log",
+  "configuration": {},
+  "environment": {},
+  "exitCode": 255,
+  "exitCodeKey": "UNKNOWN_ERROR",
+  "fileInfo": {
+    "lengths": [
+      {
+        "pathname": "254.9843576d.iframe.bundle.js",
+        "contentLength": 587067,
+        "knownAs": "254.9843576d.iframe.bundle.js"
+      },
+      {
+        "pathname": "254.9843576d.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 235,
+        "knownAs": "254.9843576d.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "254.9843576d.iframe.bundle.js.map",
+        "contentLength": 100964,
+        "knownAs": "254.9843576d.iframe.bundle.js.map"
+      },
+      {
+        "pathname": "294.4ef61be0.iframe.bundle.js",
+        "contentLength": 1633,
+        "knownAs": "294.4ef61be0.iframe.bundle.js"
+      },
+      {
+        "pathname": "357.99acd43b.iframe.bundle.js",
+        "contentLength": 39524,
+        "knownAs": "357.99acd43b.iframe.bundle.js"
+      },
+      {
+        "pathname": "529.c1d685b6.iframe.bundle.js",
+        "contentLength": 19719,
+        "knownAs": "529.c1d685b6.iframe.bundle.js"
+      },
+      {
+        "pathname": "529.c1d685b6.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 247,
+        "knownAs": "529.c1d685b6.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "676.584b58b5.iframe.bundle.js",
+        "contentLength": 3354,
+        "knownAs": "676.584b58b5.iframe.bundle.js"
+      },
+      {
+        "pathname": "735.cda54926.iframe.bundle.js",
+        "contentLength": 368017,
+        "knownAs": "735.cda54926.iframe.bundle.js"
+      },
+      {
+        "pathname": "735.cda54926.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 486,
+        "knownAs": "735.cda54926.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "80.af042963.iframe.bundle.js",
+        "contentLength": 612549,
+        "knownAs": "80.af042963.iframe.bundle.js"
+      },
+      {
+        "pathname": "80.af042963.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 487,
+        "knownAs": "80.af042963.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "80.af042963.iframe.bundle.js.map",
+        "contentLength": 810920,
+        "knownAs": "80.af042963.iframe.bundle.js.map"
+      },
+      {
+        "pathname": "961.e05a1cc8.iframe.bundle.js",
+        "contentLength": 5350,
+        "knownAs": "961.e05a1cc8.iframe.bundle.js"
+      },
+      {
+        "pathname": "961.e05a1cc8.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 239,
+        "knownAs": "961.e05a1cc8.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "components-DataTable-stories.d52cd4fa.iframe.bundle.js",
+        "contentLength": 9462,
+        "knownAs": "components-DataTable-stories.d52cd4fa.iframe.bundle.js"
+      },
+      {
+        "pathname": "components-DataTable-stories.d52cd4fa.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 247,
+        "knownAs": "components-DataTable-stories.d52cd4fa.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "components-InputField-stories.16923592.iframe.bundle.js",
+        "contentLength": 12634,
+        "knownAs": "components-InputField-stories.16923592.iframe.bundle.js"
+      },
+      {
+        "pathname": "components-InputField-stories.16923592.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 421,
+        "knownAs": "components-InputField-stories.16923592.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "favicon-wrapper.svg",
+        "contentLength": 5803,
+        "knownAs": "favicon-wrapper.svg"
+      },
+      {
+        "pathname": "favicon.svg",
+        "contentLength": 2163,
+        "knownAs": "favicon.svg"
+      },
+      {
+        "pathname": "iframe.html",
+        "contentLength": 16171,
+        "knownAs": "iframe.html"
+      },
+      {
+        "pathname": "index.html",
+        "contentLength": 3158,
+        "knownAs": "index.html"
+      },
+      {
+        "pathname": "index.json",
+        "contentLength": 6066,
+        "knownAs": "index.json"
+      },
+      {
+        "pathname": "main.90dd5f80.iframe.bundle.js",
+        "contentLength": 6642,
+        "knownAs": "main.90dd5f80.iframe.bundle.js"
+      },
+      {
+        "pathname": "mocker-runtime-injected.js",
+        "contentLength": 45991,
+        "knownAs": "mocker-runtime-injected.js"
+      },
+      {
+        "pathname": "mocker-runtime-injected.js.LICENSE.txt",
+        "contentLength": 1182,
+        "knownAs": "mocker-runtime-injected.js.LICENSE.txt"
+      },
+      {
+        "pathname": "nunito-sans-bold-italic.woff2",
+        "contentLength": 49460,
+        "knownAs": "nunito-sans-bold-italic.woff2"
+      },
+      {
+        "pathname": "nunito-sans-bold.woff2",
+        "contentLength": 47144,
+        "knownAs": "nunito-sans-bold.woff2"
+      },
+      {
+        "pathname": "nunito-sans-italic.woff2",
+        "contentLength": 49620,
+        "knownAs": "nunito-sans-italic.woff2"
+      },
+      {
+        "pathname": "nunito-sans-regular.woff2",
+        "contentLength": 47072,
+        "knownAs": "nunito-sans-regular.woff2"
+      },
+      {
+        "pathname": "project.json",
+        "contentLength": 1106,
+        "knownAs": "project.json"
+      },
+      {
+        "pathname": "runtime~main.186f97fa.iframe.bundle.js",
+        "contentLength": 6660,
+        "knownAs": "runtime~main.186f97fa.iframe.bundle.js"
+      },
+      {
+        "pathname": "sb-addons\\docs-1\\manager-bundle.js",
+        "contentLength": 24710,
+        "knownAs": "sb-addons/docs-1/manager-bundle.js"
+      },
+      {
+        "pathname": "sb-addons\\storybook-core-server-presets-0\\common-manager-bundle.js",
+        "contentLength": 588361,
+        "knownAs": "sb-addons/storybook-core-server-presets-0/common-manager-bundle.js"
+      },
+      {
+        "pathname": "sb-common-assets\\favicon-wrapper.svg",
+        "contentLength": 5803,
+        "knownAs": "sb-common-assets/favicon-wrapper.svg"
+      },
+      {
+        "pathname": "sb-common-assets\\favicon.svg",
+        "contentLength": 2163,
+        "knownAs": "sb-common-assets/favicon.svg"
+      },
+      {
+        "pathname": "sb-common-assets\\nunito-sans-bold-italic.woff2",
+        "contentLength": 49460,
+        "knownAs": "sb-common-assets/nunito-sans-bold-italic.woff2"
+      },
+      {
+        "pathname": "sb-common-assets\\nunito-sans-bold.woff2",
+        "contentLength": 47144,
+        "knownAs": "sb-common-assets/nunito-sans-bold.woff2"
+      },
+      {
+        "pathname": "sb-common-assets\\nunito-sans-italic.woff2",
+        "contentLength": 49620,
+        "knownAs": "sb-common-assets/nunito-sans-italic.woff2"
+      },
+      {
+        "pathname": "sb-common-assets\\nunito-sans-regular.woff2",
+        "contentLength": 47072,
+        "knownAs": "sb-common-assets/nunito-sans-regular.woff2"
+      },
+      {
+        "pathname": "sb-manager\\globals-module-info.js",
+        "contentLength": 17751,
+        "knownAs": "sb-manager/globals-module-info.js"
+      },
+      {
+        "pathname": "sb-manager\\globals-runtime.js",
+        "contentLength": 2126101,
+        "knownAs": "sb-manager/globals-runtime.js"
+      },
+      {
+        "pathname": "sb-manager\\globals.js",
+        "contentLength": 1564,
+        "knownAs": "sb-manager/globals.js"
+      },
+      {
+        "pathname": "sb-manager\\runtime.js",
+        "contentLength": 443013,
+        "knownAs": "sb-manager/runtime.js"
+      },
+      {
+        "pathname": "sb-preview\\globals.js",
+        "contentLength": 1179,
+        "knownAs": "sb-preview/globals.js"
+      },
+      {
+        "pathname": "sb-preview\\runtime.js",
+        "contentLength": 1295922,
+        "knownAs": "sb-preview/runtime.js"
+      },
+      {
+        "pathname": "static\\media\\accessibility.2dbc6973.png",
+        "contentLength": 42336,
+        "knownAs": "static/media/accessibility.2dbc6973.png"
+      },
+      {
+        "pathname": "static\\media\\addon-library.7a58d2cb.png",
+        "contentLength": 467366,
+        "knownAs": "static/media/addon-library.7a58d2cb.png"
+      },
+      {
+        "pathname": "static\\media\\assets.e6440a95.png",
+        "contentLength": 3899,
+        "knownAs": "static/media/assets.e6440a95.png"
+      },
+      {
+        "pathname": "static\\media\\context.645728c6.png",
+        "contentLength": 6119,
+        "knownAs": "static/media/context.645728c6.png"
+      },
+      {
+        "pathname": "static\\media\\discord.d85804c7.svg",
+        "contentLength": 2392,
+        "knownAs": "static/media/discord.d85804c7.svg"
+      },
+      {
+        "pathname": "static\\media\\docs.f7d8b9a8.png",
+        "contentLength": 27875,
+        "knownAs": "static/media/docs.f7d8b9a8.png"
+      },
+      {
+        "pathname": "static\\media\\figma-plugin.9335a1a9.png",
+        "contentLength": 44246,
+        "knownAs": "static/media/figma-plugin.9335a1a9.png"
+      },
+      {
+        "pathname": "static\\media\\github.e4e8df82.svg",
+        "contentLength": 2720,
+        "knownAs": "static/media/github.e4e8df82.svg"
+      },
+      {
+        "pathname": "static\\media\\share.161528bb.png",
+        "contentLength": 40767,
+        "knownAs": "static/media/share.161528bb.png"
+      },
+      {
+        "pathname": "static\\media\\styling.38cab73b.png",
+        "contentLength": 7237,
+        "knownAs": "static/media/styling.38cab73b.png"
+      },
+      {
+        "pathname": "static\\media\\testing.c720ced2.png",
+        "contentLength": 49313,
+        "knownAs": "static/media/testing.c720ced2.png"
+      },
+      {
+        "pathname": "static\\media\\theming.e93de094.png",
+        "contentLength": 44374,
+        "knownAs": "static/media/theming.e93de094.png"
+      },
+      {
+        "pathname": "static\\media\\tutorials.fde6e46f.svg",
+        "contentLength": 1258,
+        "knownAs": "static/media/tutorials.fde6e46f.svg"
+      },
+      {
+        "pathname": "static\\media\\youtube.fd046a09.svg",
+        "contentLength": 716,
+        "knownAs": "static/media/youtube.fd046a09.svg"
+      },
+      {
+        "pathname": "stories-Button-stories.44e0d7c6.iframe.bundle.js",
+        "contentLength": 14854,
+        "knownAs": "stories-Button-stories.44e0d7c6.iframe.bundle.js"
+      },
+      {
+        "pathname": "stories-Button-stories.44e0d7c6.iframe.bundle.js.LICENSE.txt",
+        "contentLength": 247,
+        "knownAs": "stories-Button-stories.44e0d7c6.iframe.bundle.js.LICENSE.txt"
+      },
+      {
+        "pathname": "stories-Configure-mdx.94a928fa.iframe.bundle.js",
+        "contentLength": 17090,
+        "knownAs": "stories-Configure-mdx.94a928fa.iframe.bundle.js"
+      },
+      {
+        "pathname": "stories-Header-stories.a333df26.iframe.bundle.js",
+        "contentLength": 1344,
+        "knownAs": "stories-Header-stories.a333df26.iframe.bundle.js"
+      },
+      {
+        "pathname": "stories-Page-stories.7cba52a6.iframe.bundle.js",
+        "contentLength": 10225,
+        "knownAs": "stories-Page-stories.7cba52a6.iframe.bundle.js"
+      }
+    ],
+    "paths": [
+      "254.9843576d.iframe.bundle.js",
+      "254.9843576d.iframe.bundle.js.LICENSE.txt",
+      "254.9843576d.iframe.bundle.js.map",
+      "294.4ef61be0.iframe.bundle.js",
+      "357.99acd43b.iframe.bundle.js",
+      "529.c1d685b6.iframe.bundle.js",
+      "529.c1d685b6.iframe.bundle.js.LICENSE.txt",
+      "676.584b58b5.iframe.bundle.js",
+      "735.cda54926.iframe.bundle.js",
+      "735.cda54926.iframe.bundle.js.LICENSE.txt",
+      "80.af042963.iframe.bundle.js",
+      "80.af042963.iframe.bundle.js.LICENSE.txt",
+      "80.af042963.iframe.bundle.js.map",
+      "961.e05a1cc8.iframe.bundle.js",
+      "961.e05a1cc8.iframe.bundle.js.LICENSE.txt",
+      "components-DataTable-stories.d52cd4fa.iframe.bundle.js",
+      "components-DataTable-stories.d52cd4fa.iframe.bundle.js.LICENSE.txt",
+      "components-InputField-stories.16923592.iframe.bundle.js",
+      "components-InputField-stories.16923592.iframe.bundle.js.LICENSE.txt",
+      "favicon-wrapper.svg",
+      "favicon.svg",
+      "iframe.html",
+      "index.html",
+      "index.json",
+      "main.90dd5f80.iframe.bundle.js",
+      "mocker-runtime-injected.js",
+      "mocker-runtime-injected.js.LICENSE.txt",
+      "nunito-sans-bold-italic.woff2",
+      "nunito-sans-bold.woff2",
+      "nunito-sans-italic.woff2",
+      "nunito-sans-regular.woff2",
+      "project.json",
+      "runtime~main.186f97fa.iframe.bundle.js",
+      "sb-addons/docs-1/manager-bundle.js",
+      "sb-addons/storybook-core-server-presets-0/common-manager-bundle.js",
+      "sb-common-assets/favicon-wrapper.svg",
+      "sb-common-assets/favicon.svg",
+      "sb-common-assets/nunito-sans-bold-italic.woff2",
+      "sb-common-assets/nunito-sans-bold.woff2",
+      "sb-common-assets/nunito-sans-italic.woff2",
+      "sb-common-assets/nunito-sans-regular.woff2",
+      "sb-manager/globals-module-info.js",
+      "sb-manager/globals-runtime.js",
+      "sb-manager/globals.js",
+      "sb-manager/runtime.js",
+      "sb-preview/globals.js",
+      "sb-preview/runtime.js",
+      "static/media/accessibility.2dbc6973.png",
+      "static/media/addon-library.7a58d2cb.png",
+      "static/media/assets.e6440a95.png",
+      "static/media/context.645728c6.png",
+      "static/media/discord.d85804c7.svg",
+      "static/media/docs.f7d8b9a8.png",
+      "static/media/figma-plugin.9335a1a9.png",
+      "static/media/github.e4e8df82.svg",
+      "static/media/share.161528bb.png",
+      "static/media/styling.38cab73b.png",
+      "static/media/testing.c720ced2.png",
+      "static/media/theming.e93de094.png",
+      "static/media/tutorials.fde6e46f.svg",
+      "static/media/youtube.fd046a09.svg",
+      "stories-Button-stories.44e0d7c6.iframe.bundle.js",
+      "stories-Button-stories.44e0d7c6.iframe.bundle.js.LICENSE.txt",
+      "stories-Configure-mdx.94a928fa.iframe.bundle.js",
+      "stories-Header-stories.a333df26.iframe.bundle.js",
+      "stories-Page-stories.7cba52a6.iframe.bundle.js"
+    ],
+    "statsPath": "",
+    "total": 8346034,
+    "hashes": {
+      "254.9843576d.iframe.bundle.js": "4950e92cf7521ef0",
+      "254.9843576d.iframe.bundle.js.LICENSE.txt": "b882d9a7ab60bc2b",
+      "254.9843576d.iframe.bundle.js.map": "d4e2bdc93952f7cf",
+      "294.4ef61be0.iframe.bundle.js": "10c5a8a266622fc1",
+      "357.99acd43b.iframe.bundle.js": "3cee7444573a96fa",
+      "529.c1d685b6.iframe.bundle.js": "3a63919334012f97",
+      "529.c1d685b6.iframe.bundle.js.LICENSE.txt": "ca198f6708c1cc00",
+      "676.584b58b5.iframe.bundle.js": "505cc27f11063bbc",
+      "735.cda54926.iframe.bundle.js": "db7a67cb226dacfe",
+      "735.cda54926.iframe.bundle.js.LICENSE.txt": "56aef22273f64ca6",
+      "80.af042963.iframe.bundle.js": "689169148b0b3bed",
+      "80.af042963.iframe.bundle.js.LICENSE.txt": "f7af4a897102d686",
+      "80.af042963.iframe.bundle.js.map": "111fe92db17ead00",
+      "961.e05a1cc8.iframe.bundle.js": "c06151806d17cce5",
+      "961.e05a1cc8.iframe.bundle.js.LICENSE.txt": "b997fe52fe59a0b4",
+      "components-DataTable-stories.d52cd4fa.iframe.bundle.js": "88929cc91f405c73",
+      "components-DataTable-stories.d52cd4fa.iframe.bundle.js.LICENSE.txt": "ca198f6708c1cc00",
+      "components-InputField-stories.16923592.iframe.bundle.js": "f15f84903bfc6c96",
+      "components-InputField-stories.16923592.iframe.bundle.js.LICENSE.txt": "64c2f571a8f74f69",
+      "favicon-wrapper.svg": "ac2f5da4f59a4ab7",
+      "favicon.svg": "d3380c3fb63a8430",
+      "iframe.html": "b3dd4ecd57028ecd",
+      "index.html": "fbe97dc40396a451",
+      "index.json": "5c79c1cfa26d2af0",
+      "main.90dd5f80.iframe.bundle.js": "4b2dc53a2e9a44f1",
+      "mocker-runtime-injected.js": "730ba59471d9d785",
+      "mocker-runtime-injected.js.LICENSE.txt": "47b44c2122d3773c",
+      "nunito-sans-bold-italic.woff2": "d64464b3594b3fb9",
+      "nunito-sans-bold.woff2": "0bd5b61b7fb7f7d5",
+      "nunito-sans-italic.woff2": "b7807d9de055e9a0",
+      "nunito-sans-regular.woff2": "6687b7be04c2debe",
+      "project.json": "8c87b519509735c5",
+      "runtime~main.186f97fa.iframe.bundle.js": "3a07f2479d0aaebd",
+      "sb-addons/docs-1/manager-bundle.js": "e816379b2d86870d",
+      "sb-addons/storybook-core-server-presets-0/common-manager-bundle.js": "ecf17ba92ae0b314",
+      "sb-common-assets/favicon-wrapper.svg": "ac2f5da4f59a4ab7",
+      "sb-common-assets/favicon.svg": "d3380c3fb63a8430",
+      "sb-common-assets/nunito-sans-bold-italic.woff2": "d64464b3594b3fb9",
+      "sb-common-assets/nunito-sans-bold.woff2": "0bd5b61b7fb7f7d5",
+      "sb-common-assets/nunito-sans-italic.woff2": "b7807d9de055e9a0",
+      "sb-common-assets/nunito-sans-regular.woff2": "6687b7be04c2debe",
+      "sb-manager/globals-module-info.js": "b18a86dfca78a76c",
+      "sb-manager/globals-runtime.js": "1518ed6f61f73e44",
+      "sb-manager/globals.js": "65b5882f82eea1c2",
+      "sb-manager/runtime.js": "54a1ef8533b2fcc1",
+      "sb-preview/globals.js": "994f3ac8cb3099e5",
+      "sb-preview/runtime.js": "62ebb02558a67c8c",
+      "static/media/accessibility.2dbc6973.png": "b812909ca4e68622",
+      "static/media/addon-library.7a58d2cb.png": "7d60eaf1d0d938d9",
+      "static/media/assets.e6440a95.png": "74434bfbb4585f14",
+      "static/media/context.645728c6.png": "0aaeed467a097ac2",
+      "static/media/discord.d85804c7.svg": "c13ab8cc11c7f775",
+      "static/media/docs.f7d8b9a8.png": "78ff2c0049e77a63",
+      "static/media/figma-plugin.9335a1a9.png": "92feae99501f2a11",
+      "static/media/github.e4e8df82.svg": "bf1215e7ba5edf6b",
+      "static/media/share.161528bb.png": "b661f2202586ef64",
+      "static/media/styling.38cab73b.png": "6ea0e96cc9ebaa68",
+      "static/media/testing.c720ced2.png": "6f11ce8b1d4f11ce",
+      "static/media/theming.e93de094.png": "3ca117fdffdf300a",
+      "static/media/tutorials.fde6e46f.svg": "f9b22f921e3ea736",
+      "static/media/youtube.fd046a09.svg": "0220385a3cb39c3b",
+      "stories-Button-stories.44e0d7c6.iframe.bundle.js": "44ce4c331e890b35",
+      "stories-Button-stories.44e0d7c6.iframe.bundle.js.LICENSE.txt": "ca198f6708c1cc00",
+      "stories-Configure-mdx.94a928fa.iframe.bundle.js": "64fc98b995e93456",
+      "stories-Header-stories.a333df26.iframe.bundle.js": "80328104353f9d64",
+      "stories-Page-stories.7cba52a6.iframe.bundle.js": "150247ae219e23b1"
+    }
+  },
+  "flags": {
+    "storybookZip": "storybook-static.zip",
+    "ci": true,
+    "debug": true,
+    "outputDir": [],
+    "storybookBuildDir": [],
+    "externals": [],
+    "onlyStoryFiles": [],
+    "onlyStoryNames": [],
+    "untraced": [],
+    "fileHashing": true,
+    "interactive": true
+  },
+  "git": {
+    "version": "2.50.1.windows.1",
+    "gitUserEmail": "agchiragg0wda@gmail.com",
+    "uncommittedHash": "fatal: ambiguous argument 'diff': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'\ne69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "rootPath": "D:/Projects/internshipassignment",
+    "commit": "d47a33f77ea338fa0ea34afe98a685752ec0f2a0",
+    "committedAt": 1755331668000,
+    "committerEmail": "agchiragg0wda@gmail.com",
+    "committerName": "Chirag A G",
+    "branch": "main",
+    "slug": "chiragg0wda/internshipassignment",
+    "fromCI": true,
+    "parentCommits": []
+  },
+  "input": [],
+  "isOnboarding": false,
+  "options": {
+    "fromCI": true,
+    "inAction": false,
+    "dryRun": false,
+    "debug": true,
+    "autoAcceptChanges": false,
+    "exitZeroOnChanges": false,
+    "exitOnceUploaded": false,
+    "diagnosticsFile": "chromatic-diagnostics.json",
+    "fileHashing": true,
+    "interactive": false,
+    "isLocalBuild": false,
+    "originalArgv": [
+      "--project-token=chpt_eafd1b6223cccda",
+      "--storybook-zip=storybook-static.zip",
+      "--ci",
+      "--debug"
+    ],
+    "logFile": "chromatic.log",
+    "forceRebuild": true,
+    "buildScriptName": "build-storybook",
+    "storybookLogFile": "build-storybook.log",
+    "branchName": ""
+  },
+  "packageJson": {
+    "name": "internshipassignment",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@testing-library/dom": "^10.4.1",
+      "@testing-library/jest-dom": "^6.7.0",
+      "@testing-library/react": "^16.3.0",
+      "@testing-library/user-event": "^13.5.0",
+      "@types/jest": "^27.5.2",
+      "@types/node": "^16.18.126",
+      "@types/react": "^19.1.10",
+      "@types/react-dom": "^19.1.7",
+      "lucide-react": "^0.539.0",
+      "react": "^19.1.1",
+      "react-dom": "^19.1.1",
+      "react-scripts": "5.0.1",
+      "typescript": "^4.9.5",
+      "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
+      "storybook": "storybook dev -p 6006",
+      "build-storybook": "storybook build"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest",
+        "plugin:storybook/recommended",
+        "plugin:storybook/recommended"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    },
+    "devDependencies": {
+      "@storybook/addon-docs": "^9.1.2",
+      "@storybook/addon-webpack5-compiler-swc": "^3.0.0",
+      "@storybook/react-webpack5": "^9.1.2",
+      "autoprefixer": "^10.4.21",
+      "chromatic": "^13.1.3",
+      "eslint-plugin-storybook": "^9.1.2",
+      "postcss": "^8.5.6",
+      "storybook": "^9.1.2",
+      "tailwindcss": "^3.4.17"
+    },
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "postcss.config.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  },
+  "packagePath": "D:\\Projects\\internshipassignment\\package.json",
+  "projectMetadata": {
+    "hasRouter": true,
+    "creationDate": {},
+    "storybookCreationDate": {},
+    "numberOfCommitters": 1,
+    "numberOfAppFiles": 2
+  },
+  "runtimeMetadata": {
+    "nodePlatform": "win32",
+    "nodeVersion": "22.18.0",
+    "packageManager": "npm",
+    "packageManagerVersion": "10.9.3"
+  },
+  "sentinelUrls": [],
+  "sessionId": "7fd09c3f-40ed-4eb6-bbc5-fa861762546a",
+  "sourceDir": "C:\\Users\\agchi\\AppData\\Local\\Temp\\chromatic--19908-KXjLJ8vn2dwZ",
+  "startedAt": 1755337226258,
+  "storybook": {
+    "version": "9.1.2",
+    "builder": {
+      "name": "@storybook/react-webpack5",
+      "packageVersion": "9.1.2"
+    },
+    "baseDir": "."
+  },
+  "task": "upload",
+  "uploadedBytes": 0,
+  "uploadedFiles": 0,
+  "userError": false
+}

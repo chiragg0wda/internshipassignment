@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from "react";
 
-// NOTE: Generic column typing, could be expanded later
 export interface Column<T> {
-  header: string;
+  header: React.ReactNode;
   accessor: keyof T | ((row: T) => React.ReactNode);
   sortable?: boolean;
+  widthClassName?: string;
 }
 
 export interface DataTableProps<T> {
@@ -12,93 +12,200 @@ export interface DataTableProps<T> {
   columns: Column<T>[];
   loading?: boolean;
   selectable?: boolean;
+  selectionMode?: "single" | "multiple";
   onRowSelect?: (selectedRows: T[]) => void;
 }
 
-function DataTable<T>({ data, columns, loading = false, selectable = false, onRowSelect }: DataTableProps<T>) {
-  const [sortConfig, setSortConfig] = useState<{ key: keyof T | null; direction: 'asc' | 'desc' }>({
-    key: null,
-    direction: 'asc',
-  });
-  const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
+function DataTable<T extends { id: number | string }>({
+  data,
+  columns,
+  loading = false,
+  selectable = false,
+  selectionMode = "single",
+  onRowSelect,
+}: DataTableProps<T>) {
+  const [sortConfig, setSortConfig] = useState<{ key: keyof T; direction: "asc" | "desc" } | null>(null);
+  const [selectedRows, setSelectedRows] = useState<T[]>([]);
 
-  // TODO: Replace with more robust sorting if dataset grows
-  const sortedData = React.useMemo(() => {
-    if (!sortConfig.key) return data;
+  // Sort data if sorting is applied
+  const sortedData = useMemo(() => {
+    if (!sortConfig) return data;
+
     const sorted = [...data].sort((a, b) => {
-      const aVal = a[sortConfig.key as keyof T];
-      const bVal = b[sortConfig.key as keyof T];
-      if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
-      if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
-      return 0;
+      const aValue = a[sortConfig.key];
+      const bValue = b[sortConfig.key];
+
+      if (aValue === bValue) return 0;
+
+      if (aValue == null) return 1;
+      if (bValue == null) return -1;
+
+      if (typeof aValue === "number" && typeof bValue === "number") {
+        return sortConfig.direction === "asc" ? aValue - bValue : bValue - aValue;
+      }
+
+      return sortConfig.direction === "asc"
+        ? String(aValue).localeCompare(String(bValue))
+        : String(bValue).localeCompare(String(aValue));
     });
+
     return sorted;
   }, [data, sortConfig]);
 
-  const toggleSort = (key: keyof T) => {
-    setSortConfig((prev) => ({
-      key,
-      direction: prev.key === key && prev.direction === 'asc' ? 'desc' : 'asc',
-    }));
-  };
+  // Toggle sorting on column header click
+  const handleSort = (col: Column<T>) => {
+    if (!col.sortable) return;
 
-  const toggleRow = (index: number) => {
-    const newSelection = new Set(selectedRows);
-    newSelection.has(index) ? newSelection.delete(index) : newSelection.add(index);
-    setSelectedRows(newSelection);
-    if (onRowSelect) {
-      onRowSelect(Array.from(newSelection).map((i) => sortedData[i]));
+    let direction: "asc" | "desc" = "asc";
+    if (sortConfig?.key === col.accessor && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+
+    if (typeof col.accessor === "string") {
+      setSortConfig({ key: col.accessor, direction });
     }
   };
 
-  if (loading) {
-    return <div className="p-4 text-center text-gray-500">Loading...</div>;
-  }
+  // Handle row selection
+  const handleRowSelect = (row: T) => {
+    if (!selectable) return;
 
-  if (data.length === 0) {
-    return <div className="p-4 text-center text-gray-500">No data available</div>;
-  }
+    let newSelected: T[] = [];
+
+    const alreadySelected = selectedRows.some((r) => r.id === row.id);
+
+    if (selectionMode === "single") {
+      newSelected = alreadySelected ? [] : [row];
+    } else {
+      if (alreadySelected) {
+        newSelected = selectedRows.filter((r) => r.id !== row.id);
+      } else {
+        newSelected = [...selectedRows, row];
+      }
+    }
+
+    setSelectedRows(newSelected);
+    onRowSelect?.(newSelected);
+  };
+
+  // Handle "select all" for multiple selection mode
+  const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setSelectedRows(sortedData);
+      onRowSelect?.(sortedData);
+    } else {
+      setSelectedRows([]);
+      onRowSelect?.([]);
+    }
+  };
+
+  const isRowSelected = (row: T) => selectedRows.some((r) => r.id === row.id);
 
   return (
-    <table className="w-full border-collapse border border-gray-300 dark:border-gray-700 text-sm">
-      <thead className="bg-gray-100 dark:bg-gray-800">
-        <tr>
-          {selectable && <th className="p-2 border border-gray-300 dark:border-gray-700"></th>}
-          {columns.map((col, i) => (
-            <th
-              key={i}
-              className="p-2 border border-gray-300 dark:border-gray-700 cursor-pointer select-none"
-              onClick={() => col.sortable && toggleSort(col.accessor as keyof T)}
-            >
-              {col.header}
-              {col.sortable && sortConfig.key === col.accessor && (
-                <span>{sortConfig.direction === 'asc' ? ' ▲' : ' ▼'}</span>
+    <div className="overflow-x-auto">
+      {loading ? (
+        <div className="p-4 text-center">Loading...</div>
+      ) : sortedData.length === 0 ? (
+        <div className="p-4 text-center">No data available</div>
+      ) : (
+        <table className="min-w-full border-collapse border border-gray-300">
+          <thead>
+            <tr className="bg-gray-100">
+              {selectable && (
+                <th className="p-2 border border-gray-300">
+                  {selectionMode === "multiple" && (
+                    <input
+                      type="checkbox"
+                      onChange={handleSelectAll}
+                      checked={selectedRows.length === sortedData.length && sortedData.length > 0}
+                      aria-label="Select all rows"
+                    />
+                  )}
+                </th>
               )}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {sortedData.map((row, rowIndex) => (
-          <tr key={rowIndex} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-            {selectable && (
-              <td className="p-2 border border-gray-300 dark:border-gray-700 text-center">
-                <input
-                  type="checkbox"
-                  checked={selectedRows.has(rowIndex)}
-                  onChange={() => toggleRow(rowIndex)}
-                />
-              </td>
-            )}
-            {columns.map((col, colIndex) => (
-              <td key={colIndex} className="p-2 border border-gray-300 dark:border-gray-700">
-                {typeof col.accessor === 'function' ? col.accessor(row) : (row[col.accessor] as React.ReactNode)}
-              </td>
+              {columns.map((col, index) => (
+                <th
+                  key={index}
+                  scope="col"
+                  className={`p-2 text-left border border-gray-300 cursor-pointer select-none ${
+                    col.widthClassName || ""
+                  }`}
+                  onClick={() => handleSort(col)}
+                  tabIndex={col.sortable ? 0 : -1}
+                  onKeyDown={(e) => {
+                    if (col.sortable && (e.key === "Enter" || e.key === " ")) {
+                      handleSort(col);
+                    }
+                  }}
+                  aria-sort={
+                    sortConfig?.key === col.accessor
+                      ? sortConfig.direction === "asc"
+                        ? "ascending"
+                        : "descending"
+                      : "none"
+                  }
+                >
+                  <div className="flex items-center gap-1">
+                    {col.header}
+                    {col.sortable && (
+                      <span aria-hidden="true">
+                        {sortConfig?.key === col.accessor ? (
+                          sortConfig.direction === "asc" ? (
+                            " ▲"
+                          ) : (
+                            " ▼"
+                          )
+                        ) : (
+                          " ⇵"
+                        )}
+                      </span>
+                    )}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sortedData.map((row) => (
+              <tr
+                key={row.id}
+                className={`border border-gray-300 ${
+                  isRowSelected(row) ? "bg-blue-100" : ""
+                } cursor-pointer`}
+                onClick={() => handleRowSelect(row)}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleRowSelect(row);
+                  }
+                }}
+                aria-selected={isRowSelected(row)}
+              >
+                {selectable && (
+                  <td className="p-2 border border-gray-300">
+                    <input
+                      type="checkbox"
+                      checked={isRowSelected(row)}
+                      onChange={() => handleRowSelect(row)}
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`Select row with id ${row.id}`}
+                    />
+                  </td>
+                )}
+                {columns.map((col, i) => (
+                  <td key={i} className={`p-2 border border-gray-300 ${col.widthClassName || ""}`}>
+                    {typeof col.accessor === "function"
+                      ? col.accessor(row)
+                      : (row as any)[col.accessor]}
+                  </td>
+                ))}
+              </tr>
             ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      )}
+    </div>
   );
 }
 

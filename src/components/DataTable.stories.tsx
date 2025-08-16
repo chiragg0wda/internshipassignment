@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import * as React from "react";
-import { DataTable, type Column } from "./DataTable";
+import DataTable, { Column, DataTableProps } from "./DataTable";
 
 interface User {
   id: number;
@@ -30,9 +30,9 @@ const columns: Column<User>[] = [
   { header: "Age", accessor: "age", sortable: true, widthClassName: "w-20" },
 ];
 
-const meta: Meta<typeof DataTable<User>> = {
+const meta: Meta<DataTableProps<User>> = {
   title: "Components/DataTable",
-  component: DataTable<User>,
+  component: DataTable,
   parameters: {
     layout: "padded",
     docs: {
@@ -45,7 +45,7 @@ const meta: Meta<typeof DataTable<User>> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof DataTable<User>>;
+type Story = StoryObj<DataTableProps<User>>;
 
 export const Default: Story = {
   args: { data: sampleData, columns },
